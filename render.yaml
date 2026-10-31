@@ -15,7 +15,7 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: FRONTEND_URL
-        value: https://planit-ai.onrender.com
+        value: https://planit-ai-frontend.onrender.com
     healthCheckPath: /healthz
     
   # Frontend Static Site
