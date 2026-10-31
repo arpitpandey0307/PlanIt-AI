@@ -60,17 +60,20 @@ function App() {
     setError('')
     
     try {
+      console.log('Creating event with:', { freeText, eventType, API_BASE })
       const response = await axios.post(`${API_BASE}/events/`, {
         free_text: freeText,
         event_type: eventType
       })
       
+      console.log('Event created:', response.data)
       setEventId(response.data.event_id)
       setStep('generating')
       
       // Generate the full plan
       await generatePlan(response.data.event_id)
     } catch (err: any) {
+      console.error('Create event error:', err)
       setError(err.response?.data?.detail || 'Failed to create event')
       setLoading(false)
     }
@@ -86,6 +89,7 @@ function App() {
       setStep('dashboard')
     } catch (err: any) {
       setError(err.response?.data?.detail || 'Failed to generate plan')
+      setStep('intake') // Go back to intake on error
     } finally {
       setLoading(false)
     }
@@ -194,7 +198,7 @@ function App() {
             <div className="dashboard">
               <div className="dashboard-header">
                 <h2>{plan.profile.name}</h2>
-                <p>{plan.profile.event_type.toUpperCase()} • {plan.profile.guest_count} guests • ₹{plan.profile.budget_total.toLocaleString()}</p>
+                <p>{plan.profile.event_type.toUpperCase()} • {plan.profile.guest_count} guests • ₹{(plan.profile.budget_total || 0).toLocaleString()}</p>
               </div>
 
               <div className="tabs">
@@ -236,7 +240,7 @@ function App() {
                     <div className="stats-grid">
                       <div className="stat-card">
                         <h3>Budget Status</h3>
-                        <p className="stat-value">₹{plan.budget?.remaining.toLocaleString() || 0}</p>
+                        <p className="stat-value">₹{(plan.budget?.remaining || 0).toLocaleString()}</p>
                         <p className="stat-label">Remaining</p>
                       </div>
                       
@@ -272,7 +276,7 @@ function App() {
                   <div className="budget">
                     <div className="card">
                       <h3>Budget Breakdown</h3>
-                      <p>Total: ₹{plan.budget.total_budget.toLocaleString()}</p>
+                      <p>Total: ₹{(plan.budget?.total_budget || 0).toLocaleString()}</p>
                       
                       <div className="budget-list">
                         {plan.budget.categories.map((cat, i) => (
@@ -288,8 +292,8 @@ function App() {
                               ></div>
                             </div>
                             <div className="budget-amounts">
-                              <span>₹{cat.estimated.toLocaleString()}</span>
-                              <span className="spent">Spent: ₹{cat.actual.toLocaleString()}</span>
+                              <span>₹{(cat.estimated || 0).toLocaleString()}</span>
+                              <span className="spent">Spent: ₹{(cat.actual || 0).toLocaleString()}</span>
                             </div>
                           </div>
                         ))}
