@@ -19,10 +19,8 @@ services:
     healthCheckPath: /healthz
     
   # Frontend Static Site
-  - type: web
+  - type: static
     name: planit-ai-frontend
-    env: static
-    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
     routes:
