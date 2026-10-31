@@ -566,9 +566,9 @@ If you encounter issues:
 ## 🎊 Next Steps After Deployment
 
 1. ✅ Test all features on production URL
-2. ✅ Share your demo link
-3. ✅ Submit for PromptWars Challenge 5
-4. ✅ Add deployment URL to README
+2. ✅ Share your demo link with users
+3. ✅ Add deployment URL to README
+4. ✅ Monitor logs and performance
 5. ✅ Celebrate! 🎉
 
 ---

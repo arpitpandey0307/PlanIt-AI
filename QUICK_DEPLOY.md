@@ -98,7 +98,7 @@ vercel --prod
 
 3. **Share your app:**
    - Get the live URL
-   - Share for PromptWars submission
+   - Share with your community
    - Test on mobile devices
 
 ---

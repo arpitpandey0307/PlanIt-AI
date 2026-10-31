@@ -224,4 +224,4 @@ cd frontend && npm run dev
 
 ---
 
-Built for PromptWars Challenge 5 • Happy Planning! 🎉
+**PlanIt AI** - Plan smarter, celebrate better! 🎉

@@ -233,7 +233,7 @@ Render Free tier includes:
 
 1. ✅ Test your live app thoroughly
 2. ✅ Update README.md with your live URL
-3. ✅ Share your app for PromptWars submission
+3. ✅ Share your app with users
 4. ✅ Optional: Set up custom domain
 
 ---

@@ -392,7 +392,7 @@ function App() {
 
       <footer className="app-footer">
         <div className="container">
-          <p>Built for PromptWars Challenge 5 • PlanIt AI © 2024</p>
+          <p>PlanIt AI © 2024 • Your AI-Powered Celebration Planner</p>
         </div>
       </footer>
     </div>

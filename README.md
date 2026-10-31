@@ -1,10 +1,10 @@
-# PlanIt AI - GenAI Celebration & Event Planner
+# PlanIt AI - AI-Powered Celebration & Event Planner
 
-A GenAI-powered planning assistant that helps users organize weddings, birthdays, and community events with budgets, timelines, vendor checklists, and personalized ideas.
+An intelligent planning assistant powered by GenAI that helps users organize weddings, birthdays, and community events with smart budgets, timelines, vendor checklists, and personalized creative ideas.
 
-## Chosen Vertical: Celebration & Event Planner
+## Our Mission
 
-**Persona:** The Organizer - a non-professional planning a wedding, birthday, or community event for the first time, who is short on time and money, and needs clear next steps at every point.
+**Target User:** Event organizers - from first-time wedding planners to community event coordinators - who need professional-grade planning assistance without the professional price tag.
 
 ## Approach and Logic
 
@@ -247,11 +247,11 @@ event-planner/
 - **Testing:** Lighthouse 95+ score, axe violations = 0
 
 ### Problem Statement Alignment ✅
-- **✓ Three event types:** Wedding, Birthday, Community
+- **✓ Three event types:** Wedding, Birthday, Community  
 - **✓ Four outputs:** Budget, Timeline, Vendors, Ideas
 - **✓ Context-aware:** Rules adapt to guests, budget, date, culture
-- **✓ Conversational:** Chat refinement with diff preview
-- **✓ Exportable:** PDF, CSV, ICS formats
+- **✓ Conversational:** Chat refinement with intelligent editing
+- **✓ Exportable:** PDF, CSV, ICS calendar formats
 
 ## Demo Scenarios
 
@@ -300,7 +300,7 @@ event-planner/
 
 ## Contributing
 
-This is a hackathon submission. For questions or feedback, open an issue.
+We welcome contributions! Please open an issue or submit a pull request for any improvements.
 
 ## License
 
@@ -308,4 +308,4 @@ MIT License - See LICENSE file
 
 ---
 
-Built for PromptWars Challenge 5 by Arpit
+**PlanIt AI** - Plan smarter, celebrate better ✨
