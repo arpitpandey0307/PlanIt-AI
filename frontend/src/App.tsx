@@ -60,20 +60,16 @@ function App() {
     setError('')
     
     try {
-      console.log('Creating event with:', { freeText, eventType, API_BASE })
       const response = await axios.post(`${API_BASE}/events/`, {
         free_text: freeText,
         event_type: eventType
       })
       
-      console.log('Event created:', response.data)
       setEventId(response.data.event_id)
       setStep('generating')
       
-      // Generate the full plan
       await generatePlan(response.data.event_id)
     } catch (err: any) {
-      console.error('Create event error:', err)
       setError(err.response?.data?.detail || 'Failed to create event')
       setLoading(false)
     }

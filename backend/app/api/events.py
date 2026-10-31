@@ -24,18 +24,11 @@ chat_store: Dict[str, list] = {}
 
 @router.post("/", response_model=Dict)
 async def create_event(input_data: EventProfileInput):
-    """
-    Create a new event from profile or free text.
-    Returns event ID immediately, generation happens via /generate endpoint.
-    """
+    """Create a new event from free text."""
     try:
-        # Initialize LLM client
         llm = LLMClient(settings.google_api_key)
-        
-        # Extract profile
         profile = await extract_profile(input_data, llm)
         
-        # Create event plan with profile only
         plan = EventPlan(
             profile=profile,
             budget=None,
@@ -44,28 +37,19 @@ async def create_event(input_data: EventProfileInput):
             ideas=None
         )
         
-        # Store plan
         events_store[profile.id] = plan
         chat_store[profile.id] = []
         
-        return {
-            "event_id": profile.id,
-            "message": "Event created successfully. Call /generate to create the full plan."
-        }
-    
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        return {"event_id": profile.id, "message": "Event created"}
     except Exception as e:
-        print(f"Error creating event: {e}")
         raise HTTPException(status_code=500, detail="Failed to create event")
 
 
 @router.get("/{event_id}", response_model=EventPlan)
 async def get_event(event_id: str):
-    """Fetch the full event plan."""
+    """Get event plan."""
     if event_id not in events_store:
         raise HTTPException(status_code=404, detail="Event not found")
-    
     return events_store[event_id]
 
 
